@@ -13,9 +13,15 @@ exports.getBookById = async (req, res) => {
   try {
     const book = await bookService.getBookById(req.params.code);
     if (book) {
-      res.json(book);
+
+      let response = {
+        code : 200,
+        message : "berhasil",
+        result : book
+      }
+      res.json(response);
     } else {
-      res.status(404).send('Book not found');
+      res.status(404).json({code : 400, message : "data tidak ditemukan"});
     }
   } catch (error) {
     res.status(500).send(error.message);

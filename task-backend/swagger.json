@@ -1,0 +1,189 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Library API",
+      "description": "Library API Documentation"
+    },
+    "host": "localhost:3000",
+    "basePath": "/api",
+    "schemes": ["http"],
+    "paths": {
+      "/members": {
+        "get": {
+          "summary": "Get all members",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "post": {
+          "summary": "Create a member",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "member",
+              "schema": {
+                "$ref": "#/definitions/Member"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created"
+            }
+          }
+        }
+      },
+      "/members/{code}": {
+        "get": {
+          "summary": "Get member by code",
+          "parameters": [
+            {
+              "name": "code",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": {
+              "description": "Not Found"
+            }
+          }
+        },
+        "put": {
+          "summary": "Update member",
+          "parameters": [
+            {
+              "name": "code",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "member",
+              "schema": {
+                "$ref": "#/definitions/Member"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/books": {
+        "get": {
+          "summary": "Get all books",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "post": {
+          "summary": "Create a book",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "book",
+              "schema": {
+                "$ref": "#/definitions/Book"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created"
+            }
+          }
+        }
+      },
+      "/books/{code}": {
+        "get": {
+          "summary": "Get book by code",
+          "parameters": [
+            {
+              "name": "code",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": {
+              "description": "Not Found"
+            }
+          }
+        },
+        "put": {
+          "summary": "Update book",
+          "parameters": [
+            {
+              "name": "code",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "book",
+              "schema": {
+                "$ref": "#/definitions/Book"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Member": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "penalty": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Book": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "stock": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+  

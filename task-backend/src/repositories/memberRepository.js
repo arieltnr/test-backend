@@ -8,7 +8,7 @@ class MemberRepository {
     }
 
     async findById(code) {
-        return await Member.findById(code);
+        return await Member.findByPk(code);
     }
 
     async create(member) {

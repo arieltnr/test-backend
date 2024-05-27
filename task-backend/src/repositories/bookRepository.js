@@ -7,8 +7,8 @@ class BookRepository {
         return await Book.findAll();
     }
 
-    async findById(code) {
-        return await Book.findById(code);
+    async findByPk(code) {
+        return await Book.findByPk(code);
     }
 
     async create(book) {
